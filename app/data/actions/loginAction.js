@@ -1,4 +1,4 @@
-import { Keyboard, Alert } from 'react-native';
+import { Keyboard, Alert, AsyncStorage } from 'react-native';
 import {actionWithoutPayload} from './actionDispatcher';
 
 export default function loginApiCall(dataToSend,navigate=false){
@@ -12,6 +12,7 @@ function loginApiCallFunction(dataToSend,navigate,signedInFlag){
   return(dispatch) => {
     dispatch(actionWithoutPayload('LOGIN_START'));
     if(dataToSend.username === 'user' && dataToSend.password === '123'){
+      AsyncStorage.setItem('user', dataToSend.username);
       dispatch(actionWithoutPayload('LOGIN_SUCCESS'));
       navigate('Home');
     }

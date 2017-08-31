@@ -1,5 +1,4 @@
-import { StyleSheet, Platform } from 'react-native';
-
+import { StyleSheet, Platform, I18nManager } from 'react-native';
 const styles = StyleSheet.create({
   listItemContainer : {
 		backgroundColor : '#4d4f53',

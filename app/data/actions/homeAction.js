@@ -19,7 +19,7 @@ export function search(searchStr, data){
   return(dispatch) => {
     //console.log(data);
     var results=_.filter(data,function(item){
-        return item.name.toLowerCase().indexOf(searchStr.toLowerCase())>-1;
+        return item.name.toLowerCase().indexOf(searchStr.trim().toLowerCase())>-1;
       });
     //console.log(results);
     dispatch(actionWithPayload('LIST_SEARCH',results));

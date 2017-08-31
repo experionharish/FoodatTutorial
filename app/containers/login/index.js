@@ -1,7 +1,9 @@
 import React,{ Component } from 'react';
 import {
   View,
-  Text
+  Text,
+  Alert,
+  AsyncStorage
 } from 'react-native';
 import styles from './styles';
 import LoginForm from './components/loginForm';
@@ -34,6 +36,14 @@ class Login extends Component {
 
   componentDidMount(){
     SplashScreen.hide();
+    AsyncStorage.getItem('user').then((value)=>{
+      if(value == null){
+        //Alert.alert('null');
+      } else {
+        //Alert.alert('user');
+        this.props.navigation.navigate('Home');
+      }
+    });
   }
 
   LoginFunc = (values) => {

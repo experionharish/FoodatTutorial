@@ -7,7 +7,8 @@
 import React, { Component } from 'react';
 import {
   AppRegistry,
-  View
+  View,
+  StatusBar
 } from 'react-native';
 import Main from './app/main';
 
@@ -16,6 +17,10 @@ export default class BoilerplateSample extends Component {
   render() {
     return (
       <View style={{height:'100%'}}>
+        <StatusBar
+           backgroundColor="#fa5c4f"
+           barStyle="light-content"
+         />
         <Main/>
       </View>
     );

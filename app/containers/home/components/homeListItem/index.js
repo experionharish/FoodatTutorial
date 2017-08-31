@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  I18nManager,
   View,
   Image,
   Text
@@ -18,7 +19,7 @@ const ListItem = (props) => {
                : <Image style={styles.imageToDisplay} resize="contain" source={imageURL.userProfilePic}/>
             }
             <View style={styles.detailsContainer}>
-              <Text style={styles.name}>{props.Data.name}</Text>
+              <Text style={styles.name}>{I18nManager.isRTL? " لوحة المفاتيح العربية  " : props.Data.name}</Text>
             </View>
           </View>
       </View>
