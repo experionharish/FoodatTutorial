@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import styles from './styles';
 import SplashScreen from 'react-native-splash-screen';
+import ImagePicker from 'react-native-image-crop-picker';
 
 import {
   I18nManager,
@@ -55,7 +56,7 @@ function matchDispatchToProps(dispatch){
 class Account extends Component {
   constructor(props) {
     super(props);
-    this.state={showLanguageSection : false, spinValue: new Animated.Value(0)};
+    this.state={showLanguageSection : false, profilePic: imageURL.userProfilePic};
 
   }
 
@@ -66,6 +67,10 @@ class Account extends Component {
   static navigationOptions = {
       header : null,
       gesturesEnabled:false
+  }
+
+  componentWillMount(){
+
   }
 
   componentDidMount(){
@@ -81,6 +86,11 @@ class Account extends Component {
       }
     });
 
+    AsyncStorage.getItem('profilePicture').then((value)=>{
+      if(value != null){
+        this.setState({profilePic:value});
+      }
+    });
   }
 
 
@@ -102,7 +112,22 @@ class Account extends Component {
       <Container style={styles.outerContainer}>
         <Content style={styles.container}>
           <View style={styles.profileArea}>
-            <Thumbnail large source={imageURL.userProfilePic} />
+            <View style={{alignItems:'center'}}>
+              <Thumbnail style={{borderWidth:2, borderColor:'#fff'}} large source={{uri:this.state.profilePic}} />
+              <Icon name='camera' onPress={()=>{
+                ImagePicker.openCamera({
+                  width: 300,
+                  height: 400,
+                  cropping: true,
+                  includeBase64: true
+                }).then(image => {
+                  console.log(image);
+                  this.setState({profilePic:'data:image/png;base64,'+image.data});
+                  AsyncStorage.setItem('profilePicture', this.state.profilePic);
+                });
+              }} style={{position:'absolute', bottom:-10, right:8, color:'#CCB'}}/>
+            </View>
+
             <Button style={styles.signInButton}>
               <Text style={styles.whiteText}>SIGN IN</Text>
             </Button>

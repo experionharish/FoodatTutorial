@@ -15,8 +15,8 @@ const ListItem = (props) => {
           <View style={styles.listItemDetailsContainer}>
             {
               props.Data.urlToImage ?
-              <Image style={styles.imageToDisplay} resize="contain" defaultSource={imageURL.userProfilePic} source={{uri : props.Data.urlToImage}}/>
-               : <Image style={styles.imageToDisplay} resize="contain" source={imageURL.userProfilePic}/>
+              <Image style={styles.imageToDisplay} resize="contain" defaultSource={{uri:imageURL.userProfilePic}} source={{uri : props.Data.urlToImage}}/>
+               : <Image style={styles.imageToDisplay} resize="contain" source={{uri:imageURL.userProfilePic}}/>
             }
             <View style={styles.detailsContainer}>
               <Text style={styles.name}>{I18nManager.isRTL? " لوحة المفاتيح العربية  " : props.Data.name}</Text>

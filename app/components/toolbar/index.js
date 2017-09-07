@@ -26,7 +26,7 @@ export default class Toolbar extends Component {
 
           </Left>
           <Body style={styles.title}>
-            <Title style={{ alignSelf: 'center', fontWeight : 'bold'}}>MY ACCOUNT</Title>
+            <Title style={{ alignSelf: 'center', fontWeight : 'bold'}}>HOME</Title>
           </Body>
           <Right style={styles.right}>
             {

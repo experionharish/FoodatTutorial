@@ -25,6 +25,7 @@ import homeListApiCall, { search, logOutClicked } from '../../data/actions/homeA
 import Loader from '../../components/loader';
 import Toolbar from '../../components/toolbar';
 import HomeTab1 from './components/homeTab1';
+import HomeTab2 from './components/homeTab2';
 import Account from './components/account';
 
 
@@ -36,7 +37,7 @@ const Home = TabNavigator({
     }
   },
   Favourites: {
-    screen: HomeTab1,
+    screen: HomeTab2,
     navigationOptions: {
         tabBarIcon: ({tintColor}) => (<Icon name="ios-star" style={{ color: tintColor }} />),
     }
@@ -50,14 +51,14 @@ const Home = TabNavigator({
 }, {
   tabBarPosition: 'bottom',
   tabBarOptions: {
-    activeTintColor: '#fff',
-    inactiveTintColor: '#ffb900',
+    activeTintColor: '#ffb900',
+    inactiveTintColor: '#fff',
     showIcon: true,
     showLabel: false,
     style: styles.tabBar,
     indicatorStyle: {backgroundColor:'transparent'}
   },
-  initialRouteName: 'Account'
+  initialRouteName: 'Home'
 });
 
 
@@ -79,7 +80,7 @@ class HomeView extends Component {
     return(
       <Container>
         <Toolbar />
-          <Home />
+          <Home/>
       </Container>
     )
   }

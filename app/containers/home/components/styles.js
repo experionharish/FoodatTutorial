@@ -34,7 +34,27 @@ const styles = StyleSheet.create({
   whiteText : {
     color : '#fff',
     fontWeight : 'bold'
+  },
+
+  slide : {
+    width : '100%',
+    height : '100%'
+  },
+  slideImage : {
+    width : '100%',
+    height : '100%'
+  },
+  title : {
+    position: 'absolute',
+    bottom: 10,
+    left:15,
+    fontSize: 18,
+    color: 'white',
+    textShadowColor: 'black',
+    textShadowOffset:{width:2, height:1},
+    textShadowRadius: 15
   }
+
 });
 
 export default styles;
