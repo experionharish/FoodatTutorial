@@ -2,7 +2,8 @@ import React,{ Component } from 'react';
 import {
   I18nManager,
   View,
-  Text
+  Text,
+  Alert
 } from 'react-native';
 import {
   Container,
@@ -63,6 +64,10 @@ const Home = TabNavigator({
 
 
 class HomeView extends Component {
+  constructor(props){
+    super(props);
+    this.state={page:'Home'}
+  }
 //
 //   /*
 //     Use navigationOptions to set the various properties regarding navigation of a screen.
@@ -79,8 +84,10 @@ class HomeView extends Component {
   render(){
     return(
       <Container>
-        <Toolbar />
-          <Home/>
+        <Toolbar page={this.state.page}/>
+          <Home onNavigationStateChange={(prevState, currentState) => {
+            this.setState({page:currentState.routes[currentState.index].routeName})
+          }}/>
       </Container>
     )
   }

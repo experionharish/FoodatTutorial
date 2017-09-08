@@ -4,6 +4,8 @@ const styles = StyleSheet.create({
   outerContainer  :{
     height : '100%',
     width : '100%',
+    paddingLeft:5,
+    paddingRight: 5,
     backgroundColor : '#F7F7F7',
     justifyContent : 'center'
   },

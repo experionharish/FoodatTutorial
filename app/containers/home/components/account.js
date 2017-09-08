@@ -34,6 +34,7 @@ import {
 
 import imageURL from '../../../constants/images';
 
+
 UIManager.setLayoutAnimationEnabledExperimental
   && UIManager.setLayoutAnimationEnabledExperimental(true);
 
@@ -97,6 +98,7 @@ class Account extends Component {
 
   switchArabic=()=>{
     this.props.account.arabic ? this.props.disableArabic() : this.props.enableArabic();
+
 
   }
 
